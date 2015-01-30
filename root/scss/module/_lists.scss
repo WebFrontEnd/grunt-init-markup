@@ -1,0 +1,24 @@
+.share-list {
+    padding: $padding-base;
+
+    li {
+        margin-bottom: $margin-small;
+        position: relative;
+
+        a,
+        a:hover,
+        a:focus {
+            color: $gray-base;
+            display: flex;
+            height: $ico-size;
+        }
+
+        span {
+            font-size: 16px;
+            left: $ico-size + $margin-small;
+            line-height: $ico-size;
+            position: absolute;
+            top: 0;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+// ------------------------------------- //
+// Style of Layouts
+// ------------------------------------- //
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+    margin: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.header,
+.footer {
+    padding: $padding-base;
+
+    .desc {
+        color: $gray-light;
+    }
+}

@@ -1,0 +1,18 @@
+// ------------------------------------- //
+// Style of Variables
+// ------------------------------------- //
+
+// Colors
+$gray-base: #000;
+$gray: lighten($gray-base, 33.5%);
+$gray-light: lighten($gray-base, 46.7%);
+
+// Iconography
+$ico-size: 32px;
+
+// Components
+$padding-base: 10px;
+$padding-small: 10px;
+
+$margin-base: 10px;
+$margin-small: 5px;
