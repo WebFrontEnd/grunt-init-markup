@@ -1,0 +1,19 @@
+// ------------------------------------- //
+// Style of Icons
+// ------------------------------------- //
+
+.ico {
+    display: inline-block;
+}
+
+.ico-fork {
+    @include sprite($ico-fork);
+}
+
+.ico-github {
+    @include sprite($ico-github);
+}
+
+.ico-twitter {
+    @include sprite($ico-twitter);
+}

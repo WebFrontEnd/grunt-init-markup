@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>{%= name %}</title>
+    <meta name="description" content="{%= description %}"/>
+    <meta name="viewport" content="width=100%,initial-scale=1.0,maximum-scale=2.0"/>
+    <link rel="stylesheet" href="../bower_components/normalize.css/normalize.css"/>
+    <link rel="stylesheet" href="../css/{%= name %}.css"/>
+</head>
+<body>
+<div class="header">
+    <h1 class="title">{%= name %}</h1>
+    <p class="desc">Welcome to {%= name %}, {%= description %}</p>
+</div>
+
+<div class="contents">
+    <ul class="share-list">
+        <li><a href="#"><i class="ico ico-fork"></i><span>포크</span></a></li>
+        <li><a href="#"><i class="ico ico-github"></i><span>깃허브</span></a></li>
+        <li><a href="#"><i class="ico ico-twitter"></i><span>트위터</span></a></li>
+    </ul>
+</div>
+
+<div class="footer">
+    <p class="desc">Copyright (c) 2015 {%= author_name %}. Licensed under the {%= licenses.join(', ') %} license.</p>
+</div>
+
+<script src="../bower_components/modernizr/modernizr.js"></script>
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../js/{%= name %}.js"></script>
+</body>
+</html>
