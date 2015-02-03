@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+%sp_acsd{
+    overflow: hidden;
+    display: inline-block;
+    background-image: url('../img/sp_acsd.png');
+    background-repeat: no-repeat;
+    content: '';
+}
+
+$sp_acsd: (
+    spritesheet_name: sp_acsd,
+    ico_fork: (offset_x: 0, offset_y: 0, width: 32px, height: 32px),
+    ico_github: (offset_x: -36px, offset_y: 0, width: 32px, height: 32px),
+    ico_twitter: (offset_x: 0, offset_y: -36px, width: 32px, height: 32px),
+);
