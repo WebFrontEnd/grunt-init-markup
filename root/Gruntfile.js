@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                 cssSpritesheetName: 'sp_{%= name %}',
                 // zerounit 검증을 통과하기 위해 템플릿을
                 // 수정하고 별도의 함수를 추가.
-                cssTemplate: 'scss/sprites/_sprites.mustache',
+                cssTemplate: '_sprite.mustache',
                 cssOpts: {
                     zerounit: function() {
                         return function(text, render) {
@@ -135,8 +135,8 @@ module.exports = function(grunt) {
     grunt.registerTask('devel', ['css', 'html']);
 
     // Build task(s).
-    grunt.registerTask('build', ['sprite', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'htmlhint', 'validation']);
+    grunt.registerTask('build', ['sprite', 'sass_directory_import', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'htmlhint', 'validation']);
 
     // Default task(s).
-    grunt.registerTask('default', ['css', 'html', 'devel', 'build']);
+    grunt.registerTask('default', ['devel', 'build']);
 };
