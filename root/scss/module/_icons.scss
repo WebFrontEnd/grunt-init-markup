@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 // ------------------------------------- //
 // Style of Icons
 // ------------------------------------- //
@@ -7,13 +9,13 @@
 }
 
 .ico-fork {
-    @include sprite($ico-fork);
+    @include use-sprite(ico_fork);
 }
 
 .ico-github {
-    @include sprite($ico-github);
+    @include use-sprite(ico_github);
 }
 
 .ico-twitter {
-    @include sprite($ico-twitter);
+    @include use-sprite(ico_twitter);
 }

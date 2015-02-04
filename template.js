@@ -50,6 +50,7 @@ exports.template = function(grunt, init, done) {
             "grunt-htmlhint": ">=0.4.1",
             "grunt-scss-lint": ">=0.3.4",
             "grunt-spritesmith": ">=3.6.0",
+            "grunt-sass-directory-import": ">=0.1.1",
             "jit-grunt": ">=0.9.0"
         };
 

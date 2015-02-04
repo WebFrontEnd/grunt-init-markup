@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 //-------------------------------------//
 //  Final output CSS file
 //-------------------------------------//
@@ -5,4 +7,5 @@
 // @import files
 //-------------------------------------
 @import 'core';
+@import 'sprites/sprites';
 @import 'module';
