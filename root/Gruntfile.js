@@ -10,7 +10,7 @@ module.exports = function(grunt) {
                 cssFormat: 'scss',
                 destCss: 'scss/sprites/_sp_{%= name %}.scss',
                 padding: 4,
-                cssSpritesheetName: 'sp_{%= name %}',
+                cssSpritesheetName: 'sp-{%= name %}',
                 // zerounit 검증을 통과하기 위해 템플릿을
                 // 수정하고 별도의 함수를 추가.
                 cssTemplate: '_sprites.mustache',
@@ -24,9 +24,11 @@ module.exports = function(grunt) {
                 }
             }
         },
-        sass_directory_import: {
-            files: {
-                src: ['scss/sprites/_sprites.scss']
+        concat: {
+            sprites: {
+                files: {
+                    'scss/core/_sprites.scss': ['scss/sprites/*.scss']
+                },
             },
         },
         scsslint: {
@@ -44,7 +46,8 @@ module.exports = function(grunt) {
                 options: {
                     style: 'expanded',
                     sourcemap: 'file',
-                    noCache: true
+                    noCache: true,
+                    'default-encoding': 'UTF-8'
                 },
                 files: {
                     'css/{%= name %}.css': 'scss/{%= name %}.scss'
@@ -54,7 +57,8 @@ module.exports = function(grunt) {
                 options: {
                     style: 'compressed',
                     sourcemap: 'none',
-                    noCache: true
+                    noCache: true,
+                    'default-encoding': 'UTF-8'
                 },
                 files: {
                     'css/{%= name %}.min.css': 'scss/{%= name %}.scss'
@@ -126,7 +130,7 @@ module.exports = function(grunt) {
     });
 
     // CSS task(s).
-    grunt.registerTask('css', ['sprite', 'sass_directory_import', 'scsslint', 'sass:dev', 'csslint', 'autoprefixer:dev']);
+    grunt.registerTask('css', ['sprite', 'concat:sprites', 'scsslint', 'sass:dev', 'csslint', 'autoprefixer:dev']);
 
     // HTML task(s).
     grunt.registerTask('html', ['htmlhint', 'validation']);
@@ -135,7 +139,7 @@ module.exports = function(grunt) {
     grunt.registerTask('devel', ['css', 'html']);
 
     // Build task(s).
-    grunt.registerTask('build', ['sprite', 'sass_directory_import', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'htmlhint', 'validation']);
+    grunt.registerTask('build', ['sprite', 'concat:sprites', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'htmlhint', 'validation']);
 
     // Default task(s).
     grunt.registerTask('default', ['devel', 'build']);

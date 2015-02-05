@@ -1,16 +1,13 @@
-@charset "utf-8";
-
 // ------------------------------------- //
 // Mixin
 // ------------------------------------- //
 
 /// @access public
-/// @author Hyunchul Kwak
 /// @example
 ///   @include use-sprite('ico_fork', $sp_{%= name %})
-/// @param {string} $filename - 확장자를 제외한 개별 이미지의 파일명
-/// @param {list} $map [$sp_{%= name %}] - grunt-spritesmith의 설정 중 cssSpritesheetName에 할당한 값을 변수 형태($name)로 작성
-@mixin use-sprite($filename, $map: $sp_{%= name %}){
+/// @param {string} $filename - a partial image filename
+/// @param {list} $map [$sp-{%= name %}] - grunt-spritesmith cssSpritesheetName
+@mixin use-sprite($filename, $map: $sp-{%= name %}) {
     $dimension-map: map-get($map, $filename);
 
     @extend %#{map-get($map, spritesheet_name)};
