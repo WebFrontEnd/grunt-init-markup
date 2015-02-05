@@ -44,6 +44,7 @@ exports.template = function(grunt, init, done) {
             "csslint": ">=0.10.0",
             "grunt": ">=0.4.5",
             "grunt-autoprefixer": ">=2.2.0",
+            "grunt-contrib-concat": ">=0.5.0",
             "grunt-contrib-csslint": ">=0.4.0",
             "grunt-contrib-sass": ">=0.8.1",
             "grunt-html-validation": ">=0.1.18",
