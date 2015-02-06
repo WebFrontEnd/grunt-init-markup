@@ -10,10 +10,8 @@
     <link rel="stylesheet" href="../css/{%= name %}.css"/>
 </head>
 <body>
-<div class="header">
-    <h1 class="title">{%= name %}</h1>
-    <p class="desc">Welcome to {%= name %}, {%= description %}</p>
-</div>
+
+@@include('include/00.header.html')
 
 <div class="contents">
     <ul class="share-list">
@@ -23,9 +21,7 @@
     </ul>
 </div>
 
-<div class="footer">
-    <p class="desc">Copyright (c) 2015 {%= author_name %}. Licensed under the {%= licenses.join(', ') %} license.</p>
-</div>
+@@include('include/01.footer.html')
 
 <script src="../bower_components/modernizr/modernizr.js"></script>
 <script src="../bower_components/jquery/dist/jquery.js"></script>
