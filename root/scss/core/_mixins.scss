@@ -1,0 +1,17 @@
+// ------------------------------------- //
+// Mixin
+// ------------------------------------- //
+
+/// @access public
+/// @example
+///   @include use-sprite('ico_fork', $sp_{%= name %})
+/// @param {string} $filename - a partial image filename
+/// @param {list} $map [$sp-{%= name %}] - grunt-spritesmith cssSpritesheetName
+@mixin use-sprite($filename, $map: $sp-{%= name %}) {
+    $dimension-map: map-get($map, $filename);
+
+    @extend %#{map-get($map, spritesheet_name)};
+    width: map-get($dimension-map, width);
+    height: map-get($dimension-map, height);
+    background-position: map-get($dimension-map, offset_x) map-get($dimension-map, offset_y);
+}

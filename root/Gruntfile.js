@@ -4,19 +4,16 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         sprite:{
             dist: {
-                src: ['img/*.png'],
-                dest: 'img/sp/sp_{%= name %}.png',
-                imgPath: '../img/sp/sp_{%= name %}.png',
+                src: ['img/sp_{%= name %}/*.png'],
+                dest: 'img/sp_{%= name %}.png',
+                imgPath: '../img/sp_{%= name %}.png',
                 cssFormat: 'scss',
-                destCss: 'scss/core/_sprites.scss',
-                // scsslint 검증을 통과하기 위해 _(underscore)로
-                // 작성된 파싱된 파일명을 -(dash)로 변경
-                cssVarMap: function (sprite) {
-                    sprite.name = sprite.name.replace('_', '-');
-                },
+                destCss: 'scss/sprites/_sp_{%= name %}.scss',
+                padding: 4,
+                cssSpritesheetName: 'sp-{%= name %}',
                 // zerounit 검증을 통과하기 위해 템플릿을
                 // 수정하고 별도의 함수를 추가.
-                cssTemplate: 'scss.spritesmith.mustache',
+                cssTemplate: '_sprites.mustache',
                 cssOpts: {
                     zerounit: function() {
                         return function(text, render) {
@@ -26,6 +23,13 @@ module.exports = function(grunt) {
                     }
                 }
             }
+        },
+        concat: {
+            sprites: {
+                files: {
+                    'scss/core/_sprites.scss': ['scss/sprites/*.scss']
+                },
+            },
         },
         scsslint: {
             allFiles: [
@@ -42,7 +46,8 @@ module.exports = function(grunt) {
                 options: {
                     style: 'expanded',
                     sourcemap: 'file',
-                    noCache: true
+                    noCache: true,
+                    'default-encoding': 'UTF-8'
                 },
                 files: {
                     'css/{%= name %}.css': 'scss/{%= name %}.scss'
@@ -52,7 +57,8 @@ module.exports = function(grunt) {
                 options: {
                     style: 'compressed',
                     sourcemap: 'none',
-                    noCache: true
+                    noCache: true,
+                    'default-encoding': 'UTF-8'
                 },
                 files: {
                     'css/{%= name %}.min.css': 'scss/{%= name %}.scss'
@@ -132,7 +138,7 @@ module.exports = function(grunt) {
     });
 
     // CSS task(s).
-    grunt.registerTask('css', ['sprite', 'scsslint', 'sass:dev', 'csslint', 'autoprefixer:dev']);
+    grunt.registerTask('css', ['sprite', 'concat:sprites', 'scsslint', 'sass:dev', 'csslint', 'autoprefixer:dev']);
 
     // HTML task(s).
     grunt.registerTask('html', ['includereplace', 'htmlhint', 'validation']);
@@ -141,7 +147,7 @@ module.exports = function(grunt) {
     grunt.registerTask('devel', ['css', 'html']);
 
     // Build task(s).
-    grunt.registerTask('build', ['sprite', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'html']);
+    grunt.registerTask('build', ['sprite', 'concat:sprites', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'html']);
 
     // Default task(s).
     grunt.registerTask('default', ['devel', 'build']);
