@@ -83,6 +83,3 @@ sass의 [mixin](http://www.sass-lang.com/documentation/file.SASS_REFERENCE.html#
 
 [html-inspector](https://github.com/philipwalton/html-inspector)는 구글의 엔지니어가 개발한 html 코드 품질 검증 도구입니다. 동적으로 렌더링한 컨텐츠를 검증할 수 있고 임의의 코딩 규칙을 추가할 수 도 있습니다.
 하지만 현 마크업 개발은 정적인 코드만을 작성하므로 html-inspector로 얻을 수 있는 이점이 낮아 사용하지 않았습니다.
-
-
-
