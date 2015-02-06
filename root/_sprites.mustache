@@ -1,0 +1,14 @@
+%{{spritesheet_name}} {
+    overflow: hidden;
+    display: inline-block;
+    background-image: url('{{{spritesheet.escaped_image}}}');
+    background-repeat: no-repeat;
+    content: '';
+}
+
+${{spritesheet_name}}: (
+    spritesheet_name: {{spritesheet_name}},
+  {{#items}}
+    {{name}}: (offset_x: {{#options.zerounit}}{{px.offset_x}}{{/options.zerounit}}, offset_y: {{#options.zerounit}}{{px.offset_y}}{{/options.zerounit}}, width: {{px.width}}, height: {{px.height}}),
+  {{/items}}
+);

@@ -3,5 +3,10 @@
   "css/markup.css.map" : "src/{%= name %}.css.map",
   "css/markup.min.css" : "css/{%= name %}.min.css",
   "js/markup.js" : "js/{%= name %}.js",
-  "scss/markup.scss" : "scss/{%= name %}.scss"
+  "scss/markup.scss" : "scss/{%= name %}.scss",
+  "scss/sprites/_sp_name.scss" : "scss/sprites/_sp_{%= name %}.scss",
+  "img/sp_name/ico_fork.png" : "img/sp_{%= name %}/ico_fork.png",
+  "img/sp_name/ico_github.png" : "img/sp_{%= name %}/ico_github.png",
+  "img/sp_name/ico_twitter.png" : "img/sp_{%= name %}/ico_twitter.png",
+  "img/sp_name.png" : "img/sp_{%= name %}.png"
 }
