@@ -141,8 +141,8 @@ module.exports = function(grunt) {
     grunt.registerTask('devel', ['css', 'html']);
 
     // Build task(s).
-    grunt.registerTask('build', ['sprite', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'includereplace', 'htmlhint', 'validation']);
+    grunt.registerTask('build', ['sprite', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'html']);
 
     // Default task(s).
-    grunt.registerTask('default', ['css', 'html', 'devel', 'build']);
+    grunt.registerTask('default', ['devel', 'build']);
 };
