@@ -87,12 +87,19 @@ module.exports = function(grunt) {
                 dest: 'css/{%= name %}.min.css'
             }
         },
+        includereplace: {
+            dist: {
+                files: [
+                    {src: '*.html', dest: 'dist/', expand: true, cwd: 'html/'}
+                ]
+            }
+        },
         htmlhint: {
             dist: {
                 options: {
                     htmlhintrc: '.htmlhintrc'
                 },
-                src: ['html/**/*.html']
+                src: ['dist/**/*.html']
             }
         },
         validation: {
@@ -111,7 +118,7 @@ module.exports = function(grunt) {
                 ]
             },
             files: {
-                src: ['html/*.html']
+                src: ['dist/*.html']
             }
         }
     });
@@ -120,21 +127,22 @@ module.exports = function(grunt) {
     require('jit-grunt')(grunt, {
         sprite: 'grunt-spritesmith',
         scsslint: 'grunt-scss-lint',
-        validation: 'grunt-html-validation'
+        validation: 'grunt-html-validation',
+        includereplace: 'grunt-include-replace'
     });
 
     // CSS task(s).
     grunt.registerTask('css', ['sprite', 'scsslint', 'sass:dev', 'csslint', 'autoprefixer:dev']);
 
     // HTML task(s).
-    grunt.registerTask('html', ['htmlhint', 'validation']);
+    grunt.registerTask('html', ['includereplace', 'htmlhint', 'validation']);
 
     // Develop task(s).
     grunt.registerTask('devel', ['css', 'html']);
 
     // Build task(s).
-    grunt.registerTask('build', ['sprite', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'htmlhint', 'validation']);
+    grunt.registerTask('build', ['sprite', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'html']);
 
     // Default task(s).
-    grunt.registerTask('default', ['css', 'html', 'devel', 'build']);
+    grunt.registerTask('default', ['devel', 'build']);
 };

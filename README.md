@@ -34,7 +34,7 @@ bower install
 * **grunt** : devel, build 태스크를 동시에 진행
 
 ## Tools
-![Image of Yaktocat](https://raw.githubusercontent.com/WebFrontEnd/grunt-init-markup/master/lintflow.png)
+![build process of markup](https://raw.githubusercontent.com/WebFrontEnd/grunt-init-markup/master/build_process.png)
 
 ### spritesmith
 
@@ -55,6 +55,11 @@ csslint에 관한 자세한 설명은 현철님이 번역한 [문서](https://gi
 ### autoprefixer
 
 csslint 검증 까지 무사히 성공하면 [autoprefixer](https://github.com/postcss/autoprefixer)를 사용해 스타일에 벤더사 프리픽스를 붙입니다.
+
+### includereplace
+
+[includereplace](https://github.com/alanshaw/grunt-include-replace)는 html에서 include 구문을 사용할 수 있도록 하는 도구입니다.
+마크업시 공통 혹은 중복 되는 요소를 별도의 파일로 분리하고 include 하여 효율적으로 관리할 수 있도록 합니다.
 
 ### htmlhint
 
