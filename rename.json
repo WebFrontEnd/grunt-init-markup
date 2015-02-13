@@ -5,8 +5,16 @@
   "js/markup.js" : "js/{%= name %}.js",
   "scss/markup.scss" : "scss/{%= name %}.scss",
   "scss/sprites/_sp_name.scss" : "scss/sprites/_sp_{%= name %}.scss",
+  "scss/sprites/_sp_name_2x.scss" : "scss/sprites/_sp_{%= name %}_2x.scss",
   "img/sp_name/ico_fork.png" : "img/sp_{%= name %}/ico_fork.png",
   "img/sp_name/ico_github.png" : "img/sp_{%= name %}/ico_github.png",
   "img/sp_name/ico_twitter.png" : "img/sp_{%= name %}/ico_twitter.png",
-  "img/sp_name.png" : "img/sp_{%= name %}.png"
+  "img/sp_name_2x/ico_ret1.png" : "img/sp_{%= name %}_2x/ico_ret1.png",
+  "img/sp_name_2x/ico_ret2.png" : "img/sp_{%= name %}_2x/ico_ret2.png",
+  "img/sp_name_2x/ico_ret3.png" : "img/sp_{%= name %}_2x/ico_ret3.png",
+  "img/sp_name_2x/ico_ret4.png" : "img/sp_{%= name %}_2x/ico_ret4.png",
+  "img/sp_name_2x/ico_ret5.png" : "img/sp_{%= name %}_2x/ico_ret5.png",
+  "img/sp_name_2x/ico_ret6.png" : "img/sp_{%= name %}_2x/ico_ret6.png",
+  "img/sp_name.png" : "img/sp_{%= name %}.png",
+  "img/sp_name_2x.png" : "img/sp_{%= name %}_2x.png"
 }
