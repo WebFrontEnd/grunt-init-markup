@@ -22,6 +22,35 @@ module.exports = function(grunt) {
                         };
                     }
                 }
+            },
+            // 레티나 대응 이미지
+            dist2x: {
+                src: ['img/sp_{%= name %}_2x/*.png'],
+                dest: 'img/sp_{%= name %}_2x.png',
+                imgPath: '../img/sp_{%= name %}_2x.png',
+                cssFormat: 'scss',
+                destCss: 'scss/sprites/_sp_{%= name %}_2x.scss',
+                padding: 4,
+                cssSpritesheetName: 'sp-{%= name %}-2x',
+                // 레티나 대응용 템플릿
+                cssTemplate: '_sprites2x.mustache',
+                cssOpts: {
+                    zerounit: function() {
+                        return function(text, render) {
+                            var value = render(text);
+                            return '0px' === value? '0' : value;
+                        };
+                    },
+                    // 레티나 대응을 위해서
+                    // width, height, offset을 pixel ratio로 나눔
+                    retina: function() {
+                        return function(text, render) {
+                            var pixelRatio = 2;
+                            var value = parseInt(render(text), 10) / pixelRatio + 'px';
+                            return value;
+                        }; 
+                    }
+                }
             }
         },
         concat: {

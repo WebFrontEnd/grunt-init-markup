@@ -1,18 +1,3 @@
-%sp-{%= name %} {
-    overflow: hidden;
-    display: inline-block;
-    background-image: url('../img/sp_{%= name %}.png');
-    background-repeat: no-repeat;
-    content: '';
-}
-
-$sp-{%= name %}: (
-    spritesheet_name: sp-init-test,
-    ico_fork: (offset_x: 0, offset_y: 0, width: 32px, height: 32px),
-    ico_github: (offset_x: -36px, offset_y: 0, width: 32px, height: 32px),
-    ico_twitter: (offset_x: 0, offset_y: -36px, width: 32px, height: 32px),
-);
-
 @media screen and (-webkit-min-device-pixel-ratio:1.5){
     %sp-{%= name %}-2x {
         overflow: hidden;
