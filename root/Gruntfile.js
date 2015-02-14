@@ -41,8 +41,8 @@ module.exports = function(grunt) {
                     // width, height, offset을 pixel ratio로 나눔
                     retina: function() {
                         return function(text, render) {
-                            var pixelRatio = 2;
-                            var value = parseInt(render(text), 10) / pixelRatio + 'px';
+                            var pixelRatio = 2,
+                                value = parseInt(render(text), 10) / pixelRatio + 'px';
                             return value;
                         }; 
                     }
@@ -53,8 +53,8 @@ module.exports = function(grunt) {
             sprites: {
                 files: {
                     'scss/core/_sprites.scss': ['scss/sprites/*.scss']
-                },
-            },
+                }
+            }
         },
         scsslint: {
             allFiles: [
