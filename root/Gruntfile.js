@@ -4,16 +4,15 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         sprite:{
             dist: {
-                src: ['img/sp_{%= name %}/*.png'],
+                src: ['img/sp/*.png'],
                 dest: 'img/sp_{%= name %}.png',
                 imgPath: '../img/sp_{%= name %}.png',
-                cssFormat: 'scss',
-                destCss: 'scss/sprites/_sp_{%= name %}.scss',
+                destCss: 'scss/sprites/_sprites.scss',
                 padding: 4,
                 cssSpritesheetName: 'sp-{%= name %}',
                 // zerounit 검증을 통과하기 위해 템플릿을
                 // 수정하고 별도의 함수를 추가.
-                cssTemplate: '_sprites.mustache',
+                cssTemplate: 'sprites.mustache',
                 cssOpts: {
                     zerounit: function() {
                         return function(text, render) {
@@ -23,17 +22,14 @@ module.exports = function(grunt) {
                     }
                 }
             },
-            // 레티나 대응 이미지
-            dist2x: {
-                src: ['img/sp_{%= name %}_2x/*.png'],
+            retina: {
+                src: ['img/sp_2x/*.png'],
                 dest: 'img/sp_{%= name %}_2x.png',
                 imgPath: '../img/sp_{%= name %}_2x.png',
-                cssFormat: 'scss',
-                destCss: 'scss/sprites/_sp_{%= name %}_2x.scss',
+                destCss: 'scss/sprites/_sprites_2x.scss',
                 padding: 4,
                 cssSpritesheetName: 'sp-{%= name %}-2x',
-                // 레티나 대응용 템플릿
-                cssTemplate: '_sprites2x.mustache',
+                cssTemplate: 'sprites_2x.mustache',
                 cssOpts: {
                     zerounit: function() {
                         return function(text, render) {
@@ -45,8 +41,8 @@ module.exports = function(grunt) {
                     // width, height, offset을 pixel ratio로 나눔
                     retina: function() {
                         return function(text, render) {
-                            var pixelRatio = 2;
-                            var value = parseInt(render(text), 10) / pixelRatio + 'px';
+                            var pixelRatio = 2,
+                                value = parseInt(render(text), 10) / pixelRatio + 'px';
                             return value;
                         }; 
                     }
@@ -57,8 +53,8 @@ module.exports = function(grunt) {
             sprites: {
                 files: {
                     'scss/core/_sprites.scss': ['scss/sprites/*.scss']
-                },
-            },
+                }
+            }
         },
         scsslint: {
             allFiles: [

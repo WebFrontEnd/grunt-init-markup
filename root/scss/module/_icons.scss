@@ -18,26 +18,10 @@
     @include use-sprite(ico_twitter);
 }
 
-.ico-ret1 {
-    @include use-sprite(ico_ret1, $sp-{%= name %}-2x);
+.ico-volume {
+    @include use-sprite(ico_volume, $sp-{%= name %}-2x);
 }
 
-.ico-ret2 {
-    @include use-sprite(ico_ret2, $sp-{%= name %}-2x);
-}
-
-.ico-ret3 {
-    @include use-sprite(ico_ret3, $sp-{%= name %}-2x);
-}
-
-.ico-ret4 {
-    @include use-sprite(ico_ret4, $sp-{%= name %}-2x);
-}
-
-.ico-ret5 {
-    @include use-sprite(ico_ret5, $sp-{%= name %}-2x);
-}
-
-.ico-ret6 {
-    @include use-sprite(ico_ret6, $sp-{%= name %}-2x);
+.ico-love {
+    @include use-sprite(ico_love, $sp-{%= name %}-2x);
 }
