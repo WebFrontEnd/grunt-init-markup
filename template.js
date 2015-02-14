@@ -43,6 +43,7 @@ exports.template = function(grunt, init, done) {
         props.devDependencies = {
             "csslint": ">=0.10.0",
             "grunt": ">=0.4.5",
+            "grunt-image-resize": "^1.0.0",
             "grunt-autoprefixer": ">=2.2.0",
             "grunt-contrib-concat": ">=0.5.0",
             "grunt-contrib-csslint": ">=0.4.0",

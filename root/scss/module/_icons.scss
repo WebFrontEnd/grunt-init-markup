@@ -6,22 +6,10 @@
     display: inline-block;
 }
 
-.ico-fork {
-    @include use-sprite(ico_fork);
-}
-
-.ico-github {
-    @include use-sprite(ico_github);
-}
-
-.ico-twitter {
-    @include use-sprite(ico_twitter);
-}
-
 .ico-volume {
-    @include use-sprite(ico_volume, $sp-{%= name %}-2x);
+    @include use-sprite(ico_volume);
 }
 
 .ico-love {
-    @include use-sprite(ico_love, $sp-{%= name %}-2x);
+    @include use-sprite(ico_love);
 }
