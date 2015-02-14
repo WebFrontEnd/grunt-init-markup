@@ -5,32 +5,21 @@ module.exports = function(grunt) {
         sprite:{
             dist: {
                 src: ['img/sp/*.png'],
-                dest: 'img/sp_{%= name %}.png',
-                imgPath: '../img/sp_{%= name %}.png',
+                dest: 'img/sp_{%= name %}_2x.png',
+                imgPath: '../img/sp_{%= name %}_2x.png',
                 destCss: 'scss/sprites/_sprites.scss',
                 padding: 4,
                 cssSpritesheetName: 'sp-{%= name %}',
-                // zerounit 검증을 통과하기 위해 템플릿을
-                // 수정하고 별도의 함수를 추가.
                 cssTemplate: 'sprites.mustache',
                 cssOpts: {
-                    zerounit: function() {
-                        return function(text, render) {
-                            var value = render(text);
-                            return '0px' === value? '0' : value;
-                        };
-                    }
-                }
-            },
-            retina: {
-                src: ['img/sp_2x/*.png'],
-                dest: 'img/sp_{%= name %}_2x.png',
-                imgPath: '../img/sp_{%= name %}_2x.png',
-                destCss: 'scss/sprites/_sprites_2x.scss',
-                padding: 4,
-                cssSpritesheetName: 'sp-{%= name %}-2x',
-                cssTemplate: 'sprites_2x.mustache',
-                cssOpts: {
+                    // 비 레티나용 이미지 경로를 반환하는 함수
+                    path: function(){
+                        return function(text, render){
+                            return render(text).replace('_2x', '');
+                        }
+                    },
+                    // zerounit 검증을 통과하기 위해 템플릿을
+                    // 수정하고 별도의 함수를 추가.
                     zerounit: function() {
                         return function(text, render) {
                             var value = render(text);
@@ -41,11 +30,20 @@ module.exports = function(grunt) {
                     // width, height, offset을 pixel ratio로 나눔
                     retina: function() {
                         return function(text, render) {
-                            var pixelRatio = 2,
-                                value = parseInt(render(text), 10) / pixelRatio + 'px';
-                            return value;
-                        }; 
+                            var pixelRatio = 2;
+                            return parseInt(render(text), 10) / pixelRatio + 'px';
+                        };
                     }
+                }
+            }
+        },
+        image_resize: {
+            dist: {
+                options: {
+                    width: '50%'
+                },
+                files: {
+                    'img/sp_{%= name %}.png': 'img/sp_{%= name %}_2x.png'
                 }
             }
         },
@@ -157,13 +155,14 @@ module.exports = function(grunt) {
     // load grunt plugins
     require('jit-grunt')(grunt, {
         sprite: 'grunt-spritesmith',
+        image_resize: 'grunt-image-resize',
         scsslint: 'grunt-scss-lint',
         validation: 'grunt-html-validation',
         includereplace: 'grunt-include-replace'
     });
 
     // CSS task(s).
-    grunt.registerTask('css', ['sprite', 'concat:sprites', 'scsslint', 'sass:dev', 'csslint', 'autoprefixer:dev']);
+    grunt.registerTask('css', ['sprite', 'image_resize', 'concat', 'scsslint', 'sass:dev', 'csslint', 'autoprefixer:dev']);
 
     // HTML task(s).
     grunt.registerTask('html', ['includereplace', 'htmlhint', 'validation']);
@@ -172,7 +171,7 @@ module.exports = function(grunt) {
     grunt.registerTask('devel', ['css', 'html']);
 
     // Build task(s).
-    grunt.registerTask('build', ['sprite', 'concat:sprites', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'html']);
+    grunt.registerTask('build', ['sprite', 'image_resize', 'concat', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'html']);
 
     // Default task(s).
     grunt.registerTask('default', ['devel', 'build']);

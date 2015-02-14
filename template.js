@@ -41,18 +41,19 @@ exports.template = function(grunt, init, done) {
     ], function(err, props) {
         props.keywords = [];
         props.devDependencies = {
-            "csslint": ">=0.10.0",
-            "grunt": ">=0.4.5",
-            "grunt-autoprefixer": ">=2.2.0",
-            "grunt-contrib-concat": ">=0.5.0",
-            "grunt-contrib-csslint": ">=0.4.0",
-            "grunt-contrib-sass": ">=0.8.1",
-            "grunt-html-validation": ">=0.1.18",
-            "grunt-htmlhint": ">=0.4.1",
-            'grunt-include-replace': '>=2.0.2',
-            "grunt-scss-lint": ">=0.3.4",
-            "grunt-spritesmith": ">=3.6.0",
-            "jit-grunt": ">=0.9.0"
+            "csslint": "^0.10.0",
+            "grunt": "^0.4.5",
+            "grunt-image-resize": "^1.0.0",
+            "grunt-autoprefixer": "^2.2.0",
+            "grunt-contrib-concat": "^0.5.0",
+            "grunt-contrib-csslint": "^0.4.0",
+            "grunt-contrib-sass": "^0.8.1",
+            "grunt-html-validation": "^0.1.18",
+            "grunt-htmlhint": "^0.4.1",
+            'grunt-include-replace': '^2.0.2',
+            "grunt-scss-lint": "^0.3.4",
+            "grunt-spritesmith": "^3.6.0",
+            "jit-grunt": "^0.9.0"
         };
 
         // Files to copy (and process).
