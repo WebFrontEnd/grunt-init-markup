@@ -1,4 +1,4 @@
 {
-  "js/markup.js" : "js/{%= name %}.js",
-  "scss/markup.scss" : "scss/{%= name %}.scss"
+  "js/name.js" : "js/{%= name %}.js",
+  "scss/name.scss" : "scss/{%= name %}.scss"
 }
