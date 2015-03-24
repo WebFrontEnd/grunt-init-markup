@@ -48,6 +48,7 @@ exports.template = function(grunt, init, done) {
             "grunt-contrib-concat": "^0.5.0",
             "grunt-contrib-csslint": "^0.4.0",
             "grunt-contrib-sass": "^0.8.1",
+            "grunt-contrib-watch": "^0.6.1",
             "grunt-html-validation": "^0.1.18",
             "grunt-htmlhint": "^0.4.1",
             'grunt-include-replace': '^2.0.2',

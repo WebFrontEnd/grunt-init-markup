@@ -154,6 +154,22 @@ module.exports = function(grunt) {
             files: {
                 src: ['dist/*.html']
             }
+        },
+        watch: {
+            html: {
+                files: 'html/**/*.html',
+                tasks: 'includereplace',
+                options: {
+                    spawn: false
+                }
+            },
+            scss: {
+                files: 'scss/**/*.scss',
+                tasks: ['sass:dev', 'autoprefixer:dev'],
+                options: {
+                    spawn: false
+                }
+            }
         }
     });
 
