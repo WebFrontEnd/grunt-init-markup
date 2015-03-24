@@ -18,6 +18,7 @@ grunt-init markup
 스케폴딩이 완료되면 의존 컴포넌트를 설치합니다.
 
 ```
+gem install sass
 gem install scss-lint
 npm install
 bower install
