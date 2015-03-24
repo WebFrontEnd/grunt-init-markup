@@ -52,8 +52,9 @@ exports.template = function(grunt, init, done) {
             "grunt-htmlhint": "^0.4.1",
             'grunt-include-replace': '^2.0.2',
             "grunt-scss-lint": "^0.3.4",
-            "grunt-spritesmith": "^3.6.0",
-            "jit-grunt": "^0.9.0"
+            "grunt-spritesmith": "^4.3.2",
+            "jit-grunt": "^0.9.0",
+            "mustache": "^1.1.0"
         };
 
         // Files to copy (and process).

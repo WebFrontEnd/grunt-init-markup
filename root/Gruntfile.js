@@ -10,7 +10,12 @@ module.exports = function(grunt) {
                 destCss: 'scss/sprites/_sprites.scss',
                 padding: 4,
                 cssSpritesheetName: 'sp-{%= name %}',
-                cssTemplate: 'sprites.mustache',
+                cssTemplate: function(params) {
+                    var Mustache = require('mustache');
+                    var template = grunt.file.read('sprites.mustache');
+
+                    return Mustache.render(template, params);
+                },
                 cssOpts: {
                     // 비 레티나용 이미지 경로를 반환하는 함수
                     path: function(){
