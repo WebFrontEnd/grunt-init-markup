@@ -52,6 +52,19 @@ module.exports = function(grunt) {
                 }
             }
         },
+        imagemin: {
+            dist: {
+                options: {
+                    optimizationLevel: 3
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'img',
+                    src: ['**/*.{png,jpg,gif}', '!sp/**/*.{png,jpg,gif}'],
+                    dest: 'img'
+                }]
+            }
+        },
         concat: {
             sprites: {
                 files: {
@@ -154,6 +167,22 @@ module.exports = function(grunt) {
             files: {
                 src: ['dist/*.html']
             }
+        },
+        watch: {
+            html: {
+                files: 'html/**/*.html',
+                tasks: 'includereplace',
+                options: {
+                    spawn: false
+                }
+            },
+            scss: {
+                files: 'scss/**/*.scss',
+                tasks: ['sass:dev', 'autoprefixer:dev'],
+                options: {
+                    spawn: false
+                }
+            }
         }
     });
 
@@ -167,7 +196,7 @@ module.exports = function(grunt) {
     });
 
     // CSS task(s).
-    grunt.registerTask('css', ['sprite', 'image_resize', 'concat', 'scsslint', 'sass:dev', 'csslint', 'autoprefixer:dev']);
+    grunt.registerTask('css', ['sprite', 'image_resize', 'newer:imagemin', 'concat', 'scsslint', 'sass:dev', 'csslint', 'autoprefixer:dev']);
 
     // HTML task(s).
     grunt.registerTask('html', ['includereplace', 'htmlhint', 'validation']);
@@ -176,7 +205,7 @@ module.exports = function(grunt) {
     grunt.registerTask('devel', ['css', 'html']);
 
     // Build task(s).
-    grunt.registerTask('build', ['sprite', 'image_resize', 'concat', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'html']);
+    grunt.registerTask('build', ['sprite', 'image_resize', 'newer:imagemin', 'concat', 'scsslint', 'sass:min', 'csslint', 'autoprefixer:min', 'html']);
 
     // Default task(s).
     grunt.registerTask('default', ['devel', 'build']);
